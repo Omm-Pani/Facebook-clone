@@ -92,7 +92,7 @@ export default function LoginForm({ setVisible }) {
           <Link to="/forgot" className="forgot_password">
             Forgotten Password ?
           </Link>
-          <PulseLoader color="#1876f2" loading={loading} size={30} />
+          <PulseLoader color="#1876f2" loading={loading} size={10} />
 
           {error && <div className="error_text">{error}</div>}
           <div className="splitter"></div>
