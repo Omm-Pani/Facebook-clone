@@ -73,4 +73,31 @@ a {
 .hover2:hover {
   background: var(--bg-third);
 }
+.hover3:hover {
+  background: #d4d6da3a;
+}
 /*---- hovers--- */
+
+/*------ ScrollBar ------*/
+.scrollbar::-webkit-scrollbar {
+  width: 13px;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #aeaeafa1;
+  border-radius: 8px;
+}
+/*------ ScrollBar ------*/
+
+/*------ circle ------*/
+.small_circle {
+  position: relative;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 11px;
+  background: var(--bg-third);
+}
+/*------ circle ------*/

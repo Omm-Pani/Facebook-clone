@@ -14,11 +14,24 @@ import {
 } from "../../svg";
 import { useSelector } from "react-redux";
 import SearchMenu from "./SearchMenu";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import AllMenu from "./AllMenu";
+import ClickOutside from "../../helpers/ClickOutside";
+import UserMenu from "./userMenu";
 
 export default function Header() {
   const { user } = useSelector((user) => ({ ...user }));
   const [showSearchMenu, setShowSearchMenu] = useState(false);
+  const [showAllMenu, setShowAllMenu] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
+  const allMenu = useRef(null);
+  const usermenu = useRef(null);
+  ClickOutside(allMenu, () => {
+    setShowAllMenu(false);
+  });
+  ClickOutside(usermenu, () => {
+    setShowUserMenu(false);
+  });
   const color = "#65676b";
   return (
     <header>
@@ -64,8 +77,16 @@ export default function Header() {
         </Link>
       </div>
       <div className="header_right">
-        <div className="circle_icon hover1">
-          <Menu />
+        <div ref={allMenu}>
+          <div
+            className={`circle_icon hover1 ${showAllMenu && "active_header"}`}
+            onClick={() => {
+              setShowAllMenu((prev) => !prev);
+            }}
+          >
+            <Menu />
+          </div>
+          {showAllMenu && <AllMenu />}
         </div>
         <div className="circle_icon hover1">
           <Messenger />
@@ -74,9 +95,18 @@ export default function Header() {
           <Notifications />
           <div className="right_notification">4</div>
         </div>
-        <Link to="/profile" className="profile_link hover1">
-          <img src={user?.picture} alt="" />
-        </Link>
+
+        <div className="profile" ref={usermenu}>
+          <div
+            className="profile_link hover1"
+            onClick={() => {
+              setShowUserMenu((prev) => !prev);
+            }}
+          >
+            <img src={user?.picture} alt="" />
+          </div>
+          {showUserMenu && <UserMenu user={user} />}
+        </div>
       </div>
     </header>
   );
