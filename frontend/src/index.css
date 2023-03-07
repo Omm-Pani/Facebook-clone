@@ -101,3 +101,13 @@ a {
   background: var(--bg-third);
 }
 /*------ circle ------*/
+
+/*--------- error and success styles-------- */
+.error_text {
+  color: #b94a48;
+}
+.success_text {
+  color: var(--green-color);
+}
+
+/*--------- error and success styles-------- */

@@ -1,10 +1,21 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SettingsPrivacy from "./SettingsPrivacy";
 import HelpSupport from "./HelpSupport";
 import DisplayAccessibility from "./DisplayAccessibility";
+import { useDispatch } from "react-redux";
+import Cookies from "js-cookie";
 
 export default function UserMenu({ user }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  Cookies.set("user", "");
+  const logout = () => {
+    dispatch({
+      type: "LOGOUT",
+    });
+    navigate("/login");
+  };
   const [visible, setVisible] = useState(0);
   return (
     <div className="menu">
@@ -76,7 +87,12 @@ export default function UserMenu({ user }) {
             <span>Give feedback</span>
           </div>
           {/* Log out */}
-          <div className="menu_item hover3">
+          <div
+            className="menu_item hover3"
+            onClick={() => {
+              logout();
+            }}
+          >
             <div className="small_circle">
               <i className="logout_filled_icon"></i>
             </div>
