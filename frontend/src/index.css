@@ -52,6 +52,21 @@ a {
   gap: 6px;
   cursor: pointer;
 }
+.grey_btn {
+  background-color: var(--bg-secondary);
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  padding: 8.5px 12px;
+  font-family: inherit;
+  font-weight: 600;
+  color: #141516;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+}
 /*----buttons----*/
 
 /*-------blur----- */

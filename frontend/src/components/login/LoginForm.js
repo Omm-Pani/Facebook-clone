@@ -89,7 +89,7 @@ export default function LoginForm({ setVisible }) {
             )}
           </Formik>
 
-          <Link to="/forgot" className="forgot_password">
+          <Link to="/reset" className="forgot_password">
             Forgotten Password ?
           </Link>
           <PulseLoader color="#1876f2" loading={loading} size={10} />
