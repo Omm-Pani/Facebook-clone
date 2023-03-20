@@ -1,11 +1,17 @@
 const express = require("express");
 const cors = require("cors");
+const fileUpload = require("express-fileupload");
 const dotenv = require("dotenv");
 dotenv.config();
 const mongoose = require("mongoose");
 const { readdirSync } = require("fs");
 const app = express();
 app.use(cors());
+app.use(
+  fileUpload({
+    useTempFiles: true,
+  })
+);
 app.use(express.json());
 
 //Routes
