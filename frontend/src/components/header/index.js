@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   Friends,
   Gaming,
+  Home,
   HomeActive,
   Logo,
   Market,
@@ -19,7 +20,7 @@ import AllMenu from "./AllMenu";
 import ClickOutside from "../../helpers/ClickOutside";
 import UserMenu from "./userMenu";
 
-export default function Header() {
+export default function Header({ page }) {
   const { user } = useSelector((user) => ({ ...user }));
   const [showSearchMenu, setShowSearchMenu] = useState(false);
   const [showAllMenu, setShowAllMenu] = useState(false);
@@ -59,8 +60,11 @@ export default function Header() {
         <SearchMenu color={color} setShowSearchMenu={setShowSearchMenu} />
       )}
       <div className="header_middle">
-        <Link to="/" className="middle_icon active">
-          <HomeActive />
+        <Link
+          to="/"
+          className={`middle_icon ${page === "home" ? "active" : "hover1"}`}
+        >
+          {page === "home" ? <HomeActive /> : <Home color={color} />}
         </Link>
         <Link to="/" className="middle_icon hover1">
           <Friends color={color} />
