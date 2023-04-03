@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import ProfilePicture from "../../components/profilePicture";
+import Friendships from "./Friendships";
 export default function ProfilePictureInfos({ profile, visitor, photos }) {
   const [show, setShow] = useState(false);
   const pRef = useRef(null);
@@ -37,7 +38,10 @@ export default function ProfilePictureInfos({ profile, visitor, photos }) {
         </div>
       </div>
       {visitor ? (
-        ""
+        <Friendships
+          friendshipp={profile?.friendship}
+          profileid={profile?._id}
+        />
       ) : (
         <div className="profile_w_right">
           <div className="blue_btn">
