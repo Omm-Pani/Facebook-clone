@@ -321,6 +321,7 @@
   font-weight: 600;
   font-size: 14px;
   transform: translateY(-1px);
+  text-transform: capitalize;
 }
 .reacts_popup {
   display: flex;
@@ -387,6 +388,29 @@
   place-items: center;
   border-radius: 50%;
   cursor: pointer;
+}
+.comment_error {
+  padding: 5px !important;
+  opacity: 1 !important;
+  top: unset !important;
+  bottom: unset !important;
+}
+.comment_img_preview {
+  position: relative;
+  margin-top: 5px;
+  margin-left: 40px;
+  width: 160px;
+}
+.comment_img_preview img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.comment_img_preview .small_white_circle {
+  top: -6px;
+  right: -4px;
+  transform: scale(0.8);
 }
 
 /*------ create comment ------*/
